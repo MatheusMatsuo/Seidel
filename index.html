@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="center-block main-box">
+          <div class="row">
+            <div class="col-sm-4" style="border-right: solid rgba(0,0,0,0.3) 1px">
+              <label style="margin: 0">Matriz A:</label>
+              <textarea id="in-matriz" class="form-control" rows="5" wrap="off"></textarea>
+              
+              <label style="margin: 5px 0 0">Matriz Coluna b:</label>
+              <input id="in-b" type="text" class="form-control"></input>
+              
+              <label style="margin: 5px 0 0">Vetor Inicial:</label>
+              <input id="in-x0" type="text" class="form-control"></input>
+              
+              <label style="margin: 5px 0 0">Precisão:</label>
+              <input id="in-e" type="text" class="form-control" style="margin-bottom: 10px;"></input>
+            </div>
+                      
+              <div class="row result-box">
+                <div class="col-sm-6">
+                  <p class="result-title">Gauss-Seidel</p>
+                  <p><nobr>Aproximação:</nobr> <nobr><span id="gs-aprox">[ ]</span></nobr></p>
+                  <p>Iterações: <span id="gs-numI"></span></p>
+                  <p>Critério de Sassenfeld: <span id="gs-conv"></span>
+                </div>
+                <div class="col-sm-6">
+                  <label style="margin: 0">Sequência:</label>
+                  <textarea readonly id="gs-seq" class="form-control" rows="4" wrap="off"></textarea>
+                </div>
+              </div>
+              
+              <button id="btn-calcular" class="btn btn-success btn-ms center-block">Aplicar Métodos</button>
+            </div>
+          </div>
+        </div>
+    </div>
+</body>
+</html>
