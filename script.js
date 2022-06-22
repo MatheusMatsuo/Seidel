@@ -5,7 +5,7 @@ var gaussSeidel = {
   valoresX: [],
   
   testarConvergencia: function(A) {
-    //Critério de Sassenfeld
+    // sassefield
     var somaLinha, b = new Array(A.length).fill(1);
     for (var i=0 ; i<A.length ; i++) {
       somaLinha = 0;
@@ -57,13 +57,13 @@ function updatePanel(name, valores, num, e, conv) {
   $("#" + name + "-aprox").html(formatarVetor(valores[0], e[1] + 1));
   $("#" + name + "-numI").html(num);
   if (conv) {
-    $("#" + name + "-conv").css("color", "green");
-    $("#" + name + "-conv").html("Satisfeito");
+    $("#" + name + "-conv");
+    $("#" + name + "-conv").html("Convergiu");
   } else {
-    $("#" + name + "-conv").css("color", "red");
-    $("#" + name + "-conv").html("Não-Satisfeito");
+    $("#" + name + "-conv");
+    $("#" + name + "-conv").html("Não convergiu");
   }
-  //Atualizando o Painel de Iterações
+
   $("#" + name + "-seq").html("");
   for (var i=1 ; i<valores.length ; i++) {
     $("#" + name + "-seq").append(i + "ª iteração:\n");
@@ -84,7 +84,7 @@ function formatarVetor(arr, casas) {
 
 $("document").ready(function() {
   $("#btn-calcular").click(function() {
-    //Reconhecendo a Matriz A
+
     var A = $("#in-matriz").val().split("\n");
     for(var i=0 ; i<A.length ; i++) {
       A[i] = A[i].split(" ");
@@ -92,22 +92,22 @@ $("document").ready(function() {
         arr[j] = parseFloat(arr[j]);
       });
     }
-    //Reconhecendo o vetor b
+
     var b = $("#in-b").val().split(" ");
     for(var i=0 ; i<b.length ; i++) {
       b[i] = parseFloat(b[i]);
     }
-    //Reconhecendo o vetor inicial x0
+
     var x0 = $("#in-x0").val().split(" ");
     for(var i=0 ; i<x0.length ; i++) {
       x0[i] = parseFloat(x0[i]);
     }
-    //Reconhecendo a precisão
+
     var e = [0, 0];
     e[0] = parseFloat($("#in-e").val());
     e[1] = $("#in-e").val().split(".")[1].length;
     
-    gaussJacobi.aplicar(A, b, x0, e);
+
     gaussSeidel.aplicar(A, b, x0, e);
   });
 });
